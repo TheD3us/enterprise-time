@@ -1,0 +1,17 @@
+<button class="btn-primary" [routerLink]="'create'">Ajouter Ressource</button>
+<h1>Liste des ressources</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Label</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor=" let resource of resources">
+            <th>{{resource.code}}</th>
+            <th>{{resource.label}}</th>
+        </tr>
+    </tbody>
+
+</table>
