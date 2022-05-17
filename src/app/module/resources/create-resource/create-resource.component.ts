@@ -11,7 +11,7 @@ import { ResourcesService } from '../service/resources.service';
 export class CreateResourceComponent implements OnInit {
   
   public resource : Resource;
-  constructor(private ResourceService: ResourcesService ,
+  constructor(private resourceService: ResourcesService ,
     private router: Router) { }
 
   ngOnInit(): void {
@@ -19,9 +19,9 @@ export class CreateResourceComponent implements OnInit {
   }
 
   public addResource() : void {
-    if (this.ResourceService.AddResource(this.resource)) {
+    if (this.resourceService.AddResource(this.resource)) {
       // On navigue vers la liste des ressources
-      this.router.navigate(['resource']);
+      this.router.navigate(['ressource']);
     } 
   }
 }
