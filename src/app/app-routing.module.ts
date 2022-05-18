@@ -6,9 +6,8 @@ import { Resource } from './entities/resource';
 const routes: Routes = [
   {path: 'ressource',
   loadChildren: () => import('./module/resources/resources.module').then(m => m.ResourcesModule)
-  },
-  {path: 'accueil', component : BaseAppComponent
   }
+
 ];
 
 @NgModule({

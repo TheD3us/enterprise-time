@@ -5,12 +5,16 @@ import { ResourcesRoutingModule } from './resources-routing.module';
 import { ListResourceComponent } from './list-resource/list-resource.component';
 import { CreateResourceComponent } from './create-resource/create-resource.component';
 import { FormsModule } from '@angular/forms';
+import { UpdateResourceComponent } from './update-resource/update-resource.component';
+import { DeleteResourceComponent } from './delete-resource/delete-resource.component';
 
 
 @NgModule({
   declarations: [
     ListResourceComponent,
-    CreateResourceComponent
+    CreateResourceComponent,
+    UpdateResourceComponent,
+    DeleteResourceComponent
   ],
   imports: [
     CommonModule,

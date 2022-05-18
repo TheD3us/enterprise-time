@@ -1,0 +1,11 @@
+<form (submit)="updateResource()">
+    <div class="form-group">
+      <label for="code">Code</label>
+      <input [(ngModel)]="resource.code" name="code" type="text" class="form-control" id="code">
+    </div>
+    <div class="form-group">
+      <label for="label">Label</label>
+      <input [(ngModel)]="resource.label" name="label" type="text" class="form-control" id="label" >
+    </div>
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+  </form>
