@@ -32,5 +32,50 @@ export class ProjectService {
     return of(this._projet);
   }
 
+  public DeleteResource(id : Project | number) : Observable<boolean>{
+    if(id instanceof Project){
+      _.remove(this._projet, p => p == id);
+    }else{
+      _.remove(this._projet, p => p.id == id);
+    }
+    
+    return of(true);
+  }
+
+  public GetProject(id : number) : Observable<Project> {
+    return of(this._projet.find(r => r.id == id));
+  }
+
+  public UpdateProject(project: Project) : Observable<boolean> {
+    const projectToUpdate$: Observable<Project> =
+      this.GetProject(project.id);
+
+    return projectToUpdate$.pipe(
+      // Map permets de transformer un résultat d'observable
+      map((projectToUpdate: Project) => {
+
+        if (projectToUpdate == null) {
+          throw "Cannot update project";
+        }
+
+        // Mapping des valeurs des propriétés de la ressource reçue
+        // dans la ressource du service
+        Object.assign(projectToUpdate, project);
+
+        // On ne fait pas de mapping manuel, on
+        // profite du Object.assign() pour ça
+        // resourceToUpdate.code = resource.code;
+        // resourceToUpdate.label = resource.label;
+        // resourceToUpdate.id = resource.id;
+
+        return true;
+      }),
+      catchError(e => {
+        console.error(e);
+        return of(false);
+      })
+    );
+  }
+
   constructor() { }
 }

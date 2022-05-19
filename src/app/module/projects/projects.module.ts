@@ -5,13 +5,15 @@ import { CoreModule } from '../core/core.module';
 import { FormsModule } from '@angular/forms';
 import { ResourcesRoutingModule } from './project-routing.module';
 import { CreateProjectComponent } from './create-project/create-project.component';
+import { UpdateProjectComponent } from './update-project/update-project.component';
 
 
 
 @NgModule({
   declarations: [
     ListProjectComponent,
-    CreateProjectComponent
+    CreateProjectComponent,
+    UpdateProjectComponent
   ],
   imports: [
     CommonModule,

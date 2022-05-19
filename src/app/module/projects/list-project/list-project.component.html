@@ -17,8 +17,8 @@
             <th>{{project.label}}</th>
             <th>{{project.budget}}</th>
             <th>{{project.customer}}</th>
-        <!--    <th><button type="submit" class="btn btn-success" [routerLink]="['update', project.id]">Modifier</button></th>
-            <th><button type="submit" class="btn btn-danger"  [routerLink]="['delete', project.id]">Supprimer</button></th> -->
+            <th><button type="submit" class="btn btn-success" [routerLink]="['update', project.id]">Modifier</button></th>
+            <th><button type="submit" class="btn btn-danger" (click)="deleteProjet(project.id)">Supprimer</button></th>
         </tr>
 
     </tbody>
