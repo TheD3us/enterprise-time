@@ -1,0 +1,25 @@
+<button class="btn-primary" [routerLink]="'create'">Ajouter Projet</button>
+<h1>Liste des projets</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Code</th>
+            <th>Label</th>
+            <th>Budget</th>
+            <th>Client</th>
+            <th>Modifier</th>
+            <th>Supprimer</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor=" let project of project$ | async">
+            <th>{{project.code}}</th>
+            <th>{{project.label}}</th>
+            <th>{{project.budget}}</th>
+            <th>{{project.customer}}</th>
+        <!--    <th><button type="submit" class="btn btn-success" [routerLink]="['update', project.id]">Modifier</button></th>
+            <th><button type="submit" class="btn btn-danger"  [routerLink]="['delete', project.id]">Supprimer</button></th> -->
+        </tr>
+
+    </tbody>
+</table>

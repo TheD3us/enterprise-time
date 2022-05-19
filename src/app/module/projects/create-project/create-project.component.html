@@ -1,0 +1,20 @@
+<form (submit)="addProject()">
+    <div class="form-group">
+        <label for="code">Code</label>
+        <input [(ngModel)]="project.code" name="code" type="text" class="form-control" id="code">
+    </div>
+    <div class="form-group">
+        <label for="label">Label</label>
+        <input [(ngModel)]="project.label" name="label" type="text" class="form-control" id="label">
+    </div>
+    <div class="form-group">
+        <label for="budget">Budget</label>
+        <input [(ngModel)]="project.budget" name="budget" type="number" class="form-control" id="budget">
+    </div>
+    <div class="form-group">
+        <label for="customer">Client</label>
+        <input [(ngModel)]="project.customer" name="customer" type="text" class="form-control" id="customer">
+    </div>
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+    <button type="button" class="btn btn-primary" [routerLink]="'/projet'">Annuler</button>
+</form>
