@@ -39,7 +39,12 @@ export class ResourcesService {
   }
 
   public DeleteResource(id: Resource | number) : boolean{
-    _.remove(this._resources, r => r.id == id);
+    if(id instanceof Resource){
+      _.remove(this._resources, r => r == id);
+    }else{
+      _.remove(this._resources, r => r.id == id);
+    }
+    
     return true;
   }
 

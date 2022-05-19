@@ -7,6 +7,7 @@ import { CreateResourceComponent } from './create-resource/create-resource.compo
 import { FormsModule } from '@angular/forms';
 import { UpdateResourceComponent } from './update-resource/update-resource.component';
 import { DeleteResourceComponent } from './delete-resource/delete-resource.component';
+import { CoreModule } from '../core/core.module';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { DeleteResourceComponent } from './delete-resource/delete-resource.compo
   imports: [
     CommonModule,
     FormsModule,
-    ResourcesRoutingModule
+    ResourcesRoutingModule,
+    CoreModule
   ]
 })
 export class ResourcesModule { }

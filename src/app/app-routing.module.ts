@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BaseAppComponent } from './component/base-app/base-app.component';
-import { Resource } from './entities/resource';
+
 
 const routes: Routes = [
   {path: 'ressource',
