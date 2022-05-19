@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Resource } from 'src/app/entities/resource';
 import { ResourcesService } from '../service/resources.service';
 
@@ -17,15 +18,21 @@ export class UpdateResourceComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = parseInt(this.route.snapshot.paramMap.get('id'));
-    this.resource = this.resourceService.GetResource(this.id);
+    this.resourceService.GetResource(this.id).subscribe((resourceOriginale : Resource) => {
+      
+      this.resource = new Resource();
+      Object.assign(this.resource, resourceOriginale);
+    });
     
   }
 
   public updateResource() : void {
-    if (this.resourceService.UpdateResource(this.resource)) {
-      // On navigue vers la liste des ressources
-      this.router.navigate(['ressource']);
-    } 
+    
+    this.resourceService.UpdateResource(this.resource).subscribe(succes => {
+      if(succes){
+        this.router.navigate(['ressource']);
+      }
+    }) 
   }
 
 }

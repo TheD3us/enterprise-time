@@ -10,7 +10,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor=" let resource of resources">
+        <tr *ngFor=" let resource of resources$ | async">
             <th>{{resource.code}}</th>
             <th>{{resource.label}}</th>
             <th><button type="submit" class="btn btn-success" [routerLink]="['update', resource.id]">Modifier</button></th>

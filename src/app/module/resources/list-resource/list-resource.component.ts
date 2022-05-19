@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Resource } from 'src/app/entities/resource';
 import { ResourcesService } from '../service/resources.service';
-import { ModalComponent } from '../../core/modal/modal.component';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-list-resource',
@@ -10,13 +10,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./list-resource.component.scss']
 })
 export class ListResourceComponent implements OnInit {
-  public resources: Resource[];
+  public resources$: Observable<Resource[]>;
 
-  constructor(private ResourceService : ResourcesService,
-            private _modalService : NgbModal) {  }
+  constructor(private ResourceService : ResourcesService) {  }
 
   ngOnInit(): void {
-    this.resources = this.ResourceService.GetAllResources();
+    this.resources$= this.ResourceService.GetAllResources();
     
   }
 

@@ -19,9 +19,10 @@ export class CreateResourceComponent implements OnInit {
   }
 
   public addResource() : void {
-    if (this.resourceService.AddResource(this.resource)) {
-      // On navigue vers la liste des ressources
-      this.router.navigate(['ressource']);
-    } 
+    this.resourceService.AddResource(this.resource).subscribe(succes => {
+      if(succes){
+        this.router.navigate(['ressource']);
+      }
+    }) 
   }
 }
